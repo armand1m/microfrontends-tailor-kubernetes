@@ -1,19 +1,19 @@
 {
   "name": "frontends",
   "version": "1.0.0",
-  "description": "",
+  "description": "Monorepository with all microfrontends inside",
   "main": "index.js",
   "scripts": {
     "prestart": "npm run build",
     "start": "lerna run --parallel start",
-    "start:fragments": "lerna run --parallel start --ignore layout-service",
     "build": "lerna run --parallel build",
     "watch": "lerna run --parallel watch",
     "test": "lerna run --parallel test",
+    "lint": "lerna run --parallel lint",
     "install": "lerna bootstrap"
   },
   "keywords": [],
-  "author": "",
+  "author": "Armando Magalhaes",
   "license": "ISC",
   "devDependencies": {
     "lerna": "^3.13.1"
