@@ -1,0 +1,10 @@
+apiVersion: skaffold/v1beta7
+kind: Config
+build:
+  artifacts:
+  - image: gcr.io/microfrontends-armand1m/layout-service
+    context: ./packages/layout-service
+deploy:
+  kubectl:
+    manifests:
+    - ./packages/layout-service/kubernetes/*

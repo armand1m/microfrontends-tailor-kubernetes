@@ -7,13 +7,4 @@ const getProtocol = (request: IncomingMessage) => {
   return protocolFromHeader || assumedProtocol;
 };
 
-const getHost = (request: IncomingMessage) => request.headers.host;
-
-const getContextUrl = (request: IncomingMessage) => {
-  const protocol = getProtocol(request);
-  const host = getHost(request);
-
-  return `${protocol}://${host}`;
-};
-
-export default getContextUrl;
+export default getProtocol;

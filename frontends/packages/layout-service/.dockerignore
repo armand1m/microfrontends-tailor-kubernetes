@@ -1,0 +1,10 @@
+./.git/
+./node_modules
+./kubernetes
+./build
+.dockerignore
+.gitignore
+Dockerfile
+kubernetes.yaml
+cloudbuild.yaml
+tslint.json

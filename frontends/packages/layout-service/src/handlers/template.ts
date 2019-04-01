@@ -5,16 +5,20 @@ import getContextUrl from "../helpers/get-context-url";
 const mapping = {
   "/": "/index",
   "/index": "/index",
+  "notFound": "/404",
+};
+
+const mapPathnameToTemplateUrl = (pathname: string = "/") => {
+  return mapping[pathname] || mapping.notFound;
 };
 
 export default (templatesPath: string) =>
   (request: IncomingMessage, parseTemplate: any) => {
-    const url = new URL(request.url, getContextUrl(request));
-    const pathname = url.pathname;
+    const { pathname } = new URL(request.url, getContextUrl(request));
 
     const requestClone = {
       ...request,
-      url: mapping[pathname || "/"],
+      url: mapPathnameToTemplateUrl(pathname),
     };
 
     return fetchTemplateFn(templatesPath)(requestClone, parseTemplate);

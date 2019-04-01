@@ -9,6 +9,7 @@
     "start:fragments": "lerna run --parallel start --ignore layout-service",
     "build": "lerna run --parallel build",
     "watch": "lerna run --parallel watch",
+    "test": "lerna run --parallel test",
     "install": "lerna bootstrap"
   },
   "keywords": [],
