@@ -1,0 +1,42 @@
+{
+  "name": "layout-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/index.js",
+  "scripts": {
+    "start": "node .",
+    "build": "tsc",
+    "lint": "tslint --project .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "micro": "^9.3.3",
+    "micro-router": "^0.1.1",
+    "node-tailor": "^3.9.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/micro": "^7.3.3",
+    "jest": "^24.5.0",
+    "ts-jest": "^24.0.1",
+    "tslint": "^5.14.0",
+    "typescript": "^3.4.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ],
+    "moduleNameMapper": {
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat"
+    }
+  }
+}
