@@ -1,5 +1,5 @@
 import { IncomingMessage } from "http";
-import fetchTemplateFn from "node-tailor/lib/fetch-template";
+import fetchTemplate from "node-tailor/lib/fetch-template";
 import getContextUrl from "~/helpers/get-context-url";
 
 const mapping = {
@@ -21,7 +21,7 @@ const handleTemplate = (templatesPath: string) =>
       url: mapPathnameToTemplateUrl(pathname),
     };
 
-    return fetchTemplateFn(templatesPath)(requestClone, parseTemplate);
+    return fetchTemplate(templatesPath)(requestClone, parseTemplate);
   };
 
 export default handleTemplate;

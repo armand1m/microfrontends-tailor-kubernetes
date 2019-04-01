@@ -8,17 +8,17 @@ import fragmentHandler from "~/handlers/fragment";
 import templateHandler from "~/handlers/template";
 
 const tailor = new Tailor({
-  /* buggy: must open PR yet */
+  /* buggy: https://github.com/zalando/tailor/pull/298 */
   fetchTemplate: templateHandler(TEMPLATES_PATH) as any,
   /* buggy: https://github.com/zalando/tailor/pull/297 */
   requestFragment: fragmentHandler as any,
 });
 
-tailor.on("error", (request: IncomingMessage, error: Error) => {
+tailor.on("error", (_REQUEST: IncomingMessage, error: Error) => {
   /* tslint:disable-next-line */
-  console.error("\n[TAILOR ERROR]: ", error.message);
+  console.error("\n[Layout Service] [TAILOR ERROR]: ", error.message);
   /* tslint:disable-next-line */
-  console.error("\n[TAILOR ERROR]: ", error.stack);
+  console.error("\n[Layout Service] [TAILOR ERROR]: ", error.stack);
 });
 
 const handler: RequestHandler = async (request, response) => {

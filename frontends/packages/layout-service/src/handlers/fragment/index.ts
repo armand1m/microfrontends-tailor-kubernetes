@@ -1,12 +1,12 @@
 import { IncomingMessage } from "http";
 import { Url } from "url";
 
-import filterReqHeadersFn from "node-tailor/lib/filter-headers";
-import requestFragmentFn from "node-tailor/lib/request-fragment";
+import filterRequestHeaders from "node-tailor/lib/filter-headers";
+import requestFragment from "node-tailor/lib/request-fragment";
 
 import getContextUrl from "~/helpers/get-context-url";
 
-const enhancedRequestFragment = requestFragmentFn(filterReqHeadersFn);
+const enhancedRequestFragment = requestFragment(filterRequestHeaders);
 
 interface IAttributes {
   id: string;

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "es2017",
+    "module": "commonjs",
+    "preserveConstEnums": true,
+    "strictNullChecks": false,
+    "declaration": true,
+    "strictPropertyInitialization": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "rootDir": "src",
+    "outDir": "build",
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["./*"],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
