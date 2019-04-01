@@ -1,6 +1,6 @@
 import { IncomingMessage } from "http";
 import fetchTemplateFn from "node-tailor/lib/fetch-template";
-import getContextUrl from "../helpers/get-context-url";
+import getContextUrl from "~/helpers/get-context-url";
 
 const mapping = {
   "/": "/index",

@@ -4,7 +4,7 @@ import { Url } from "url";
 import filterReqHeadersFn from "node-tailor/lib/filter-headers";
 import requestFragmentFn from "node-tailor/lib/request-fragment";
 
-import getContextUrl from "../helpers/get-context-url";
+import getContextUrl from "~/helpers/get-context-url";
 
 const enhancedRequestFragment = requestFragmentFn(filterReqHeadersFn);
 

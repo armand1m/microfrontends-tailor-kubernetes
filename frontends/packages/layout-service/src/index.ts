@@ -3,9 +3,9 @@ import micro, { RequestHandler } from "micro";
 
 import Tailor from "node-tailor";
 
-import { HOST, PORT, TEMPLATES_PATH } from "./config";
-import fragmentHandler from "./handlers/fragment";
-import templateHandler from "./handlers/template";
+import { HOST, PORT, TEMPLATES_PATH } from "~/config";
+import fragmentHandler from "~/handlers/fragment";
+import templateHandler from "~/handlers/template";
 
 const tailor = new Tailor({
   /* buggy: must open PR yet */

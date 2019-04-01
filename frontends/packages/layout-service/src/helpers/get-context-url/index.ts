@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
 
-import getHost from "../get-host";
-import getProtocol from "../get-protocol";
+import getHost from "~/helpers/get-host";
+import getProtocol from "~/helpers/get-protocol";
 
 const getContextUrl = (request: IncomingMessage) => {
   return `${getProtocol(request)}://${getHost(request)}`;

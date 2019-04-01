@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
 import getContextUrl from ".";
 
-describe("helpers/getContextUrl", () => {
+describe("helpers/get-context-url", () => {
   it("should return expected https url", () => {
     const request = new IncomingMessage(null);
     request.headers.host = "expected-host";

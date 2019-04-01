@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "Armando Magalhaes",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "micro": "^9.3.3",
     "micro-router": "^0.1.1",
@@ -36,6 +36,12 @@
     },
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.ts"
-    ]
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "moduleNameMapper": {
+      "^~/(.*)$": "<rootDir>/src/$1"
+    }
   }
 }

@@ -10,6 +10,13 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "rootDir": "src",
-    "outDir": "build"
-  }
+    "outDir": "build",
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["./*"],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
