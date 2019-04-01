@@ -7,7 +7,11 @@
     "start": "node .",
     "build": "tsc",
     "lint": "tslint --project .",
-    "test": "jest"
+    "test": "jest",
+    "info": "npm-scripts-info"
+  },
+  "scripts-info": {
+    "lint": "Analyzes the application source code"
   },
   "keywords": [],
   "author": "Armando Magalhaes",
@@ -21,6 +25,7 @@
     "@types/jest": "^24.0.11",
     "@types/micro": "^7.3.3",
     "jest": "^24.5.0",
+    "npm-scripts-info": "^0.3.9",
     "ts-jest": "^24.0.1",
     "tslint": "^5.14.0",
     "typescript": "^3.4.1"
