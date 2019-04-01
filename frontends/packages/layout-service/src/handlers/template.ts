@@ -12,7 +12,7 @@ const mapPathnameToTemplateUrl = (pathname: string = "/") => {
   return mapping[pathname] || mapping.notFound;
 };
 
-export default (templatesPath: string) =>
+const handleTemplate = (templatesPath: string) =>
   (request: IncomingMessage, parseTemplate: any) => {
     const { pathname } = new URL(request.url, getContextUrl(request));
 
@@ -23,3 +23,5 @@ export default (templatesPath: string) =>
 
     return fetchTemplateFn(templatesPath)(requestClone, parseTemplate);
   };
+
+export default handleTemplate;
