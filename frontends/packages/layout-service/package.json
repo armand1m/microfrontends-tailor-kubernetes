@@ -4,24 +4,26 @@
   "description": "Application Layout Service",
   "main": "./build/index.js",
   "scripts": {
-    "start": "node .",
+    "prebuild": "rm -rf ./build",
+    "start": "DEBUG=* node .",
     "build": "tsc",
     "lint": "tslint --project .",
     "test": "jest",
     "info": "npm-scripts-info"
   },
   "scripts-info": {
-    "lint": "Analyzes the application source code"
+    "lint": "Runs a static code analysis through the application source code"
   },
   "keywords": [],
   "author": "Armando Magalhaes",
   "license": "MIT",
   "dependencies": {
+    "debug": "^4.1.1",
     "micro": "^9.3.3",
-    "micro-router": "^0.1.1",
     "node-tailor": "^3.9.2"
   },
   "devDependencies": {
+    "@types/debug": "^4.1.3",
     "@types/jest": "^24.0.11",
     "@types/micro": "^7.3.3",
     "jest": "^24.5.0",
@@ -31,17 +33,12 @@
     "typescript": "^3.4.1"
   },
   "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.[t]sx?$",
     "transform": {
       "^.+\\.(ts)$": "ts-jest"
     },
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.ts"
-    ],
     "collectCoverageFrom": [
       "src/**/*.ts"
-    ],
-    "moduleNameMapper": {
-      "^~/(.*)$": "<rootDir>/src/$1"
-    }
+    ]
   }
 }

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-header-fragment
+  labels:
+    app: frontend-header-fragment
+spec:
+  type: NodePort
+  ports:
+    - port: 3001
+      targetPort: 3001
+      protocol: TCP
+      name: frontend-header-fragment
+  selector:
+    app: frontend-header-fragment

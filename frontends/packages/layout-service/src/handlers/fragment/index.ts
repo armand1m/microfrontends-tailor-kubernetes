@@ -1,14 +1,12 @@
 import { IncomingMessage } from "http";
-import { Url } from "url";
+import { Span } from "opentracing";
 
 import filterRequestHeaders from "node-tailor/lib/filter-headers";
 import requestFragment from "node-tailor/lib/request-fragment";
 
-import getContextUrl from "~/helpers/get-context-url";
+import getAbsoluteFragmentUrl from "../../helpers/get-absolute-fragment-url";
 
-const enhancedRequestFragment = requestFragment(filterRequestHeaders);
-
-interface IAttributes {
+interface IFragmentAttributes {
   id: string;
   src: string;
   async?: boolean;
@@ -18,18 +16,17 @@ interface IAttributes {
   [key: string]: any;
 }
 
-const handleFragment = (
-  fragmentUrl: Url,
-  fragmentAttributes: IAttributes,
+type FragmentHandlerFunction = (
+  fragmentUrl: string,
+  fragmentAttributes: IFragmentAttributes,
   request: IncomingMessage,
-  span = null,
-) => {
-  const formattedFragmentUrl = getContextUrl(request) + fragmentUrl;
+  span?: Span,
+) => any;
 
-  /* tslint:disable-next-line */
-  console.log("\n[TAILOR LOG]: Requesting fragment at ", formattedFragmentUrl);
+const enhancedRequestFragment = requestFragment(filterRequestHeaders);
 
-  return enhancedRequestFragment(formattedFragmentUrl, fragmentAttributes, request, span);
-};
+const fragmentHandler: FragmentHandlerFunction =
+  (fragmentUrl, fragmentAttributes, request, span) =>
+    enhancedRequestFragment(getAbsoluteFragmentUrl(fragmentUrl, request), fragmentAttributes, request, span);
 
-export default handleFragment;
+export default fragmentHandler;

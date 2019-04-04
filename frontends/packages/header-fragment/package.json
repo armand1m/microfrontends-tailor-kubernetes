@@ -1,0 +1,40 @@
+{
+  "name": "header-fragment",
+  "version": "1.0.0",
+  "description": "Application Header Fragment",
+  "main": "./build/server/index.js",
+  "scripts": {
+    "prebuild": "rm -rf ./build",
+    "start": "node .",
+    "build": "tsc",
+    "lint": "tslint --project .",
+    "test": "jest",
+    "info": "npm-scripts-info"
+  },
+  "scripts-info": {
+    "lint": "Analyzes the application source code"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.6.0",
+    "npm-scripts-info": "^0.3.9",
+    "ts-jest": "^24.0.1",
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
+  },
+  "dependencies": {
+    "@types/micro": "^7.3.3",
+    "micro": "^9.3.3",
+    "micro-router": "^0.1.1"
+  }
+}

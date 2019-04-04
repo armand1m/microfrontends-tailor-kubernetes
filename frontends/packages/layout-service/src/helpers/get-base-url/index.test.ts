@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
-import getContextUrl from ".";
+import getBaseUrl from ".";
 
-describe("helpers/get-context-url", () => {
+describe("helpers/get-base-url", () => {
   it("should return expected https url", () => {
     const request = new IncomingMessage(null);
     request.headers.host = "expected-host";
@@ -11,18 +11,15 @@ describe("helpers/get-context-url", () => {
 
     const expectedUrl = "https://expected-host";
 
-    expect(getContextUrl(request)).toBe(expectedUrl);
+    expect(getBaseUrl(request)).toBe(expectedUrl);
   });
 
   it("should return expected http url", () => {
     const request = new IncomingMessage(null);
     request.headers.host = "expected-host";
 
-    /** TODO: verify if this is really needed */
-    (request.connection as any) = {};
-
     const expectedUrl = "http://expected-host";
 
-    expect(getContextUrl(request)).toBe(expectedUrl);
+    expect(getBaseUrl(request)).toBe(expectedUrl);
   });
 });
