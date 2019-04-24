@@ -1,10 +1,11 @@
 import { IncomingMessage } from "http";
+import { Socket } from "net";
 import getAbsoluteFragmentUrl from ".";
 
 const TEST_HOST = "some-host-url";
 
 const createRequest = () => {
-  const request = new IncomingMessage(null);
+  const request = new IncomingMessage(new Socket());
   request.headers.host = TEST_HOST;
   return request;
 };

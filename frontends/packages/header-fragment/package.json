@@ -6,7 +6,9 @@
   "scripts": {
     "prebuild": "rm -rf ./build",
     "start": "node .",
-    "build": "tsc",
+    "watch": "tsc -w",
+    "build:client": "cd ./src/client && webpack -p",
+    "build:server": "cd ./src/server && webpack -p",
     "lint": "tslint --project .",
     "test": "jest",
     "info": "npm-scripts-info"
@@ -18,11 +20,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
     "jest": "^24.6.0",
     "npm-scripts-info": "^0.3.9",
+    "source-map-loader": "^0.2.4",
     "ts-jest": "^24.0.1",
+    "ts-loader": "^5.3.3",
     "tslint": "^5.15.0",
-    "typescript": "^3.4.1"
+    "typescript": "^3.4.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "jest": {
     "transform": {
@@ -34,7 +42,11 @@
   },
   "dependencies": {
     "@types/micro": "^7.3.3",
+    "@types/react": "^16.8.12",
+    "@types/react-dom": "^16.8.3",
     "micro": "^9.3.3",
-    "micro-router": "^0.1.1"
+    "micro-router": "^0.1.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }

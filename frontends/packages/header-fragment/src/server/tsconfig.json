@@ -7,13 +7,16 @@
     "strictNullChecks": true,
     "declaration": true,
     "strictPropertyInitialization": true,
-    "moduleResolution": "node",
     "sourceMap": true,
-    "rootDir": "src",
-    "outDir": "build",
-    "baseUrl": "src"
+    "outDir": "../../build/server",
+    "jsx": "react",
+    "noImplicitAny": true
   },
+  "include": [
+    "./**/*"
+  ],
   "exclude": [
-    "node_modules"
+    "build",
+    "../../node_modules"
   ]
 }

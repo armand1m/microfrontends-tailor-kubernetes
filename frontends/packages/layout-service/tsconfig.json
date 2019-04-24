@@ -4,17 +4,18 @@
     "target": "es2017",
     "module": "commonjs",
     "preserveConstEnums": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "declaration": true,
     "newLine": "LF",
     "strictPropertyInitialization": false,
     "moduleResolution": "node",
     "sourceMap": true,
     "rootDir": "src",
-    "outDir": "build",
-    "baseUrl": "src"
+    "outDir": "build"
   },
   "exclude": [
-    "node_modules"
+    "build",
+    "node_modules",
+    "**/*.test.ts"
   ]
 }
